@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-class LoginViewModel extends ChangeNotifier {
+class RegisterViewModel extends ChangeNotifier {
   TextEditingController emailController = TextEditingController(),
-      passwordController = TextEditingController();
+      passwordController = TextEditingController(),
+      confirmPasswordController = TextEditingController();
 
   bool isObscure = true;
 
