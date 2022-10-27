@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:opms/views/admin/homepage/homepage_view_admin.dart';
 import 'package:opms/views/login/login_view_model.dart';
 import 'package:opms/views/register/register_view.dart';
 import 'package:stacked/stacked.dart';
@@ -166,6 +167,11 @@ class LoginView extends StatelessWidget with InputValidationMixin {
                                     //   viewModel.emailFieldController.text,
                                     //   viewModel.passwordFieldController.text,
                                     // );
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                HomepageViewAdmin()));
                                   },
                                   child: Container(
                                     height: 50,

@@ -425,7 +425,7 @@ class SetUpAccountView extends StatelessWidget {
                                             MediaQuery.of(context).size.width,
                                         child: const Center(
                                             child: Text(
-                                          'Save',
+                                          'Register',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,

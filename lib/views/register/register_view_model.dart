@@ -6,9 +6,14 @@ class RegisterViewModel extends ChangeNotifier {
       confirmPasswordController = TextEditingController();
 
   bool isObscure = true;
+  bool isObscureConfirm = true;
 
   void changeObscure() {
     isObscure = isObscure == false ? true : false;
+    notifyListeners();
+  }
+  void changeObscureConfirm() {
+    isObscureConfirm = isObscureConfirm == false ? true : false;
     notifyListeners();
   }
 }

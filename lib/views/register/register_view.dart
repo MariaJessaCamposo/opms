@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:opms/views/login/login_view.dart';
 import 'package:opms/views/register/register_view_model.dart';
@@ -39,24 +40,25 @@ class RegisterView extends StatelessWidget with InputValidationMixin {
                           ),
                     ),
                   ),
+                  const Positioned(
+                    top: 110,
+                    left: 10,
+                    child: Text(
+                      'Register to\nEyeChoice Optical Shop!',
+                      textAlign: TextAlign.center,
+                      style:
+                      TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+                    ),
+                  ),
                   Positioned(
                     top: 25,
-                    left: 170,
+                    left: 180,
                     child: Image.asset(
                       'lib/resources/assets/images/dd1.png',
                       fit: BoxFit.contain,
                     ),
                   ),
-                  const Positioned(
-                    top: 90,
-                    left: 60,
-                    child: Text(
-                      'Create\nan\naccount!',
-                      textAlign: TextAlign.center,
-                      style:
-                          TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
-                    ),
-                  ),
+
                   Positioned(
                     top: 150,
                     //left: 0,
@@ -67,7 +69,7 @@ class RegisterView extends StatelessWidget with InputValidationMixin {
                         shrinkWrap: true,
                         //physics: const BouncingScrollPhysics(),
                         //controller: ScrollController(initialScrollOffset: 0),
-                        //dragStartBehavior: DragStartBehavior.down,
+                        //dragStartBehavior: DragStartBehavior.start,
                         children: <Widget>[
                           Container(
                             height: 500,
@@ -84,20 +86,22 @@ class RegisterView extends StatelessWidget with InputValidationMixin {
                                 child: Column(
                                   children: [
                                     const Text(
-                                      'Register',
+                                      'Create your Account',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 24),
+                                          fontSize: 24,
+                                          color: Colors.grey
+                                      ),
                                     ),
-                                    const Text(
-                                      '(click Register to Continue)',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: 15,
-                                          color: Colors.grey),
-                                    ),
+                                    // const Text(
+                                    //   '(click Register to Continue)',
+                                    //   textAlign: TextAlign.center,
+                                    //   style: TextStyle(
+                                    //       fontWeight: FontWeight.w400,
+                                    //       fontSize: 15,
+                                    //       color: Colors.grey),
+                                    // ),
                                     const SizedBox(
                                       height: 40,
                                     ),
@@ -114,8 +118,8 @@ class RegisterView extends StatelessWidget with InputValidationMixin {
                                             //prefixIcon: Icon(Icons.mail),
                                             contentPadding: EdgeInsets.only(
                                                 top: 10, left: 4),
-                                            labelText: 'Email',
-                                            //hintText: 'Enter Email',
+                                            //labelText: 'Email',
+                                            hintText: 'Enter Email',
                                             enabledBorder: UnderlineInputBorder(
                                                 borderSide: BorderSide(
                                                     color: Color(0xffADADAD))),
@@ -168,9 +172,9 @@ class RegisterView extends StatelessWidget with InputValidationMixin {
                                             ),
                                             contentPadding:
                                                 const EdgeInsets.only(
-                                                    top: 10, left: 4),
-                                            labelText: 'Password',
-                                            //hintText: 'Enter Password',
+                                                    top: 20, left: 4),
+                                            //labelText: 'Password',
+                                            hintText: 'Enter Password',
                                             enabledBorder:
                                                 const UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -195,7 +199,7 @@ class RegisterView extends StatelessWidget with InputValidationMixin {
                                           controller: viewModel
                                               .confirmPasswordController,
                                           //keyboardType: TextInputType.emailAddress,
-                                          obscureText: viewModel.isObscure
+                                          obscureText: viewModel.isObscureConfirm
                                               ? true
                                               : false,
                                           decoration: InputDecoration(
@@ -210,14 +214,14 @@ class RegisterView extends StatelessWidget with InputValidationMixin {
                                                 ),
                                               ),
                                               onPressed: () {
-                                                viewModel.changeObscure();
+                                                viewModel.changeObscureConfirm();
                                               },
                                             ),
                                             contentPadding:
                                                 const EdgeInsets.only(
-                                                    top: 10, left: 4),
-                                            labelText: 'Confirm Password',
-                                            //hintText: 'Confirm Password',
+                                                    top: 20, left: 4),
+                                            //labelText: 'Confirm Password',
+                                            hintText: 'Confirm Password',
                                             enabledBorder:
                                                 const UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -259,7 +263,7 @@ class RegisterView extends StatelessWidget with InputValidationMixin {
                                             MediaQuery.of(context).size.width,
                                         child: const Center(
                                             child: Text(
-                                          'Register',
+                                          'Next',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
