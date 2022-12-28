@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:opms/views/admin/homepage/homepage_view_admin_model.dart';
-import 'package:opms/views/products/products_view.dart';
+import 'package:opms/views/admin/products/products_view.dart';
 import 'package:stacked/stacked.dart';
 
 class HomepageViewClient extends StatelessWidget {

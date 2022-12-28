@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:opms/views/admin/homepage/home_view.dart';
 import 'package:opms/views/register/set_up_account_view_model.dart';
 import 'package:stacked/stacked.dart';
 
@@ -33,7 +34,7 @@ class SetUpAccountView extends StatelessWidget {
                     height: 500,
                     width: MediaQuery.of(context).size.width,
                     child: Container(
-                      decoration: const BoxDecoration(color: Color(0xff68F4B1)
+                      decoration: const BoxDecoration(color: Color(0xff73CEF4)
                           //borderRadius: BorderRadius.circular(100),
                           ),
                     ),
@@ -53,7 +54,7 @@ class SetUpAccountView extends StatelessWidget {
                           Container(
                             //height: 500,
                             decoration: const BoxDecoration(
-                              color: Color(0xffE8FAEA),
+                              color: Colors.white,
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(60),
                                   topRight: Radius.circular(60)),
@@ -89,10 +90,11 @@ class SetUpAccountView extends StatelessWidget {
                                         color: const Color(0xff68F4B1),
                                         borderRadius:
                                             BorderRadius.circular(100),
+                                        border: Border.all(color: Colors.grey)
                                       ),
-                                      child: const Icon(
-                                        Icons.photo_camera,
-                                        size: 38,
+                                      child: Image.asset(
+                                        'lib/resources/assets/images/avatar.png',
+                                        fit: BoxFit.contain,
                                       ),
                                     ),
                                     const SizedBox(
@@ -408,6 +410,11 @@ class SetUpAccountView extends StatelessWidget {
                                     ),
                                     InkWell(
                                       onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const HomeView()));
                                         // viewModel.loginFields(
                                         //   viewModel.emailFieldController.text,
                                         //   viewModel.passwordFieldController.text,
@@ -416,7 +423,7 @@ class SetUpAccountView extends StatelessWidget {
                                       child: Container(
                                         height: 50,
                                         decoration: BoxDecoration(
-                                            color: const Color(0xff68F4B1),
+                                            color: const Color(0xff73CEF4),
                                             borderRadius:
                                                 BorderRadius.circular(50)),
                                         // padding:

@@ -35,7 +35,7 @@ class RegisterView extends StatelessWidget with InputValidationMixin {
                     height: 500,
                     width: MediaQuery.of(context).size.width,
                     child: Container(
-                      decoration: const BoxDecoration(color: Color(0xff68F4B1)
+                      decoration: const BoxDecoration(color: Color(0xff73CEF4)
                           //borderRadius: BorderRadius.circular(100),
                           ),
                     ),
@@ -74,7 +74,7 @@ class RegisterView extends StatelessWidget with InputValidationMixin {
                           Container(
                             height: 500,
                             decoration: const BoxDecoration(
-                              color: Color(0xffE8FAEA),
+                              color: Colors.white,
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(51),
                                   topRight: Radius.circular(51)),
@@ -254,7 +254,7 @@ class RegisterView extends StatelessWidget with InputValidationMixin {
                                       child: Container(
                                         height: 50,
                                         decoration: BoxDecoration(
-                                            color: const Color(0xff68F4B1),
+                                            color: const Color(0xff73CEF4),
                                             borderRadius:
                                                 BorderRadius.circular(50)),
                                         // padding:

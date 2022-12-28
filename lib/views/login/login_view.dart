@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:opms/views/admin/homepage/homepage_view_admin.dart';
+import 'package:opms/views/admin/homepage/home_view.dart';
 import 'package:opms/views/login/login_view_model.dart';
 import 'package:opms/views/register/register_view.dart';
 import 'package:stacked/stacked.dart';
@@ -26,9 +26,10 @@ class LoginView extends StatelessWidget with InputValidationMixin {
                 height: 500,
                 width: MediaQuery.of(context).size.width,
                 child: Container(
-                  decoration: const BoxDecoration(color: Color(0xff68F4B1)
-                      //borderRadius: BorderRadius.circular(100),
-                      ),
+                  decoration: const BoxDecoration(
+                    color: Color(0xff73CEF4),
+                    //borderRadius: BorderRadius.circular(100),
+                  ),
                 ),
               ),
               Positioned(
@@ -53,7 +54,7 @@ class LoginView extends StatelessWidget with InputValidationMixin {
                     children: [
                       Container(
                         decoration: const BoxDecoration(
-                          color: Color(0xffE8FAEA),
+                          color: Colors.white,
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(51),
                               topRight: Radius.circular(51)),
@@ -148,12 +149,12 @@ class LoginView extends StatelessWidget with InputValidationMixin {
                                             viewModel.changeObscure();
                                           },
                                         ),
-                                        prefixIcon: Icon(Icons.lock),
-                                        contentPadding:
-                                            EdgeInsets.only(top: 15, left: 4),
+                                        prefixIcon: const Icon(Icons.lock),
+                                        contentPadding: const EdgeInsets.only(
+                                            top: 15, left: 4),
                                         hintText: 'Password',
                                         //border: InputBorder.none,
-                                        border: OutlineInputBorder(),
+                                        border: const OutlineInputBorder(),
                                       ),
                                     ),
                                   ),
@@ -171,12 +172,12 @@ class LoginView extends StatelessWidget with InputValidationMixin {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                HomepageViewAdmin()));
+                                                const HomeView()));
                                   },
                                   child: Container(
                                     height: 50,
                                     decoration: BoxDecoration(
-                                        color: Colors.black,
+                                        color: const Color(0xff73CEF4),
                                         borderRadius:
                                             BorderRadius.circular(12)),
                                     // padding:
@@ -187,8 +188,8 @@ class LoginView extends StatelessWidget with InputValidationMixin {
                                       'Login',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     )),
                                   ),
                                 ),
@@ -241,7 +242,7 @@ class LoginView extends StatelessWidget with InputValidationMixin {
                                   child: Container(
                                     height: 50,
                                     decoration: BoxDecoration(
-                                        color: Colors.black,
+                                        color: const Color(0xff73CEF4),
                                         borderRadius:
                                             BorderRadius.circular(12)),
                                     // padding:
@@ -252,8 +253,8 @@ class LoginView extends StatelessWidget with InputValidationMixin {
                                       'Sign Up',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     )),
                                   ),
                                 ),

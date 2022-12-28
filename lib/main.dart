@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:opms/views/client/homepage/homepage_view_client.dart';
+import 'package:get/get.dart';
+import 'package:opms/views/admin/homepage/home_view.dart';
 import 'package:opms/views/login/login_view.dart';
 import 'package:opms/views/register/register_view.dart';
 
@@ -13,14 +14,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Opms',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           iconTheme: IconThemeData(color: Colors.black),
           titleTextStyle: TextStyle(color: Colors.black),
-          color: Color(0xff68F4B1),
+          color: Color(0xff68D2F4),
             //color: Colors.white
         )
       ),
@@ -77,11 +78,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
-                      return const HomepageViewClient();
+                      return const HomeView();
                     },
                   ));
                 },
-                child: const Text('Home Client')),
+                child: const Text('Home')),
           ],
         ),
       ),
