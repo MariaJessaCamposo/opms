@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:opms/views/admin/appointments/appointments_view.dart';
 import 'package:opms/views/admin/homepage/homepage_view_admin_model.dart';
 import 'package:opms/views/admin/patients/add_patient/add_patient_view.dart';
+import 'package:opms/views/login/login_view.dart';
 import 'package:opms/views/user_profile/user_profile_page_view.dart';
 import 'package:stacked/stacked.dart';
 
@@ -44,7 +45,82 @@ class HomepageViewAdmin extends StatelessWidget {
                 IconButton(
                     onPressed: () {},
                     icon: const Icon(Icons.notifications_none)),
-                IconButton(onPressed: () {}, icon: const Icon(Icons.logout))
+                IconButton(
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (_) {
+                            return AlertDialog(
+                              title: const Text(
+                                'Are you sure you want to log out?',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              // content: const Text('Continue?'),
+                              actions: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    SizedBox(
+                                      height: 40,
+                                      child: ElevatedButton(
+                                        style: ButtonStyle(
+                                            backgroundColor:
+                                                MaterialStateProperty.all(
+                                          Colors.redAccent,
+                                        )),
+                                        onPressed: () {
+                                          //viewModel.navigationService.pop();
+                                          Navigator.pop(context);
+                                        },
+                                        child: const Center(
+                                            child: Text(
+                                          'Cancel',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            //fontSize: 16,
+                                          ),
+                                        )),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 16,
+                                    ),
+                                    SizedBox(
+                                      height: 40,
+                                      child: ElevatedButton(
+                                        style: ButtonStyle(
+                                            backgroundColor:
+                                                MaterialStateProperty.all(
+                                          Colors.lightBlue,
+                                        )),
+                                        onPressed: () async {
+                                          Get.to(LoginView());
+
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(const SnackBar(
+                                                  content: Text(
+                                                      'Log Out')));
+                                        },
+                                        child: const Center(
+                                            child: Text(
+                                          'Yes',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            //fontSize: 18,
+                                          ),
+                                        )),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            );
+                          });
+                    },
+                    icon: const Icon(Icons.logout))
               ],
             ),
 
@@ -159,15 +235,15 @@ class HomepageViewAdmin extends StatelessWidget {
                           height: 90,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
-                            color:  Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow: [BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 4,
-                              blurRadius: 7,
-                              offset: const Offset(0,3)
-                            )]
-                          ),
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.grey.withOpacity(0.5),
+                                    spreadRadius: 4,
+                                    blurRadius: 7,
+                                    offset: const Offset(0, 3))
+                              ]),
                           child: Row(
                             // scrollDirection: Axis.horizontal,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -215,7 +291,7 @@ class HomepageViewAdmin extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                            AddPatientView()));
+                                                AddPatientView()));
                                   },
                                   child: Column(
                                     crossAxisAlignment:

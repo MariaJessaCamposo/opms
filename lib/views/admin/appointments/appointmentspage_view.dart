@@ -1,4 +1,8 @@
+import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:opms/constants/styles/palette_color.dart';
+import 'package:opms/views/admin/appointments/add_appointment/add_appointment_view.dart';
 import 'package:opms/views/admin/appointments/appointments_view.dart';
 import 'package:opms/views/admin/appointments/appointmentspage_view_model.dart';
 import 'package:stacked/stacked.dart';
@@ -16,7 +20,9 @@ class AppointmentsPageView extends StatelessWidget {
           return Scaffold(
             floatingActionButton: FloatingActionButton.extended(
               heroTag: 'uniqueTag',
-              onPressed: () {},
+              onPressed: () {
+                Get.to(() => AddAppointmentView());
+              },
               isExtended: true,
               //tooltip: "Scroll to Bottom",
               label: Row(
@@ -41,39 +47,61 @@ class AppointmentsPageView extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 25, color: Colors.white)),
                           const SizedBox(height: 10),
-                          Container(
-                            margin: const EdgeInsets.only(top: 30),
-                            child: const Text(
-                              "February 2023",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
+                          // Container(
+                          //   margin: const EdgeInsets.only(top: 30),
+                          //   child: const Text(
+                          //     "February 2023",
+                          //     style: TextStyle(
+                          //       color: Colors.white,
+                          //       fontSize: 18,
+                          //
+                          //     ),
+                          //   ),
+                          // ),
+                          // Container(
+                          //   margin: const EdgeInsets.only(top: 20),
+                          //   height: 60,
+                          //   child: ListView(
+                          //     scrollDirection: Axis.horizontal,
+                          //     children: [
+                          //       demoDates("MON", "21", true),
+                          //       demoDates("TUE", "22", false),
+                          //       demoDates("WED", "23", false),
+                          //       demoDates("THU", "24", false),
+                          //       demoDates("FRI", "25", false),
+                          //       demoDates("SAT", "26", false),
+                          //       demoDates("SUN", "27", false),
+                          //
+                          //
+                          //     ],
+                          //   ),
+                          // )
 
+                          Container(
+                            // color: Palettes.kcBlueMain1,
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 0, left: 4, right: 4, bottom: 10),
+                              child: CalendarTimeline(
+                                key: ObjectKey(viewModel.appointmentList),
+                                initialDate: viewModel.selectedDate,
+                                firstDate: DateTime.utc(2021, 12),
+                                lastDate: DateTime(2026, 12),
+                                onDateSelected: (date) {
+                                  viewModel.getAppointmentByDate(date!);
+                                },
+                                monthColor: Colors.white,
+                                activeBackgroundDayColor: Colors.white,
+                                dayColor: Colors.white,
+                                activeDayColor: Palettes.kcBlueMain1,
+                                // selectableDayPredicate: ,
                               ),
                             ),
                           ),
-                          Container(
-                            margin: const EdgeInsets.only(top: 20),
-                            height: 60,
-                            child: ListView(
-                              scrollDirection: Axis.horizontal,
-                              children: [
-                                demoDates("MON", "21", true),
-                                demoDates("TUE", "22", false),
-                                demoDates("WED", "23", false),
-                                demoDates("THU", "24", false),
-                                demoDates("FRI", "25", false),
-                                demoDates("SAT", "26", false),
-                                demoDates("SUN", "27", false),
-
-
-                              ],
-                            ),
-                          )
-
                         ],
                       ),
                     ),
+
                     const SizedBox(height: 10),
 
 
@@ -145,16 +173,14 @@ class AppointmentsPageView extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            child: Center(
-              child: Text(
-                day,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                ),
+          Center(
+            child: Text(
+              day,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 13,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),
@@ -190,14 +216,12 @@ class AppointmentsPageView extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            child: Text(
-              day,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 13,
-                fontWeight: FontWeight.w500,
-              ),
+          Text(
+            day,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 13,
+              fontWeight: FontWeight.w500,
             ),
           ),
           Container(

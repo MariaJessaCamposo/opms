@@ -94,82 +94,39 @@ class HomeView extends StatelessWidget {
             // ),
               body: IndexedStack(
                 index: viewModel.stackIndex,
-                children: const [
-                  HomepageViewAdmin(),
+                children:  [
+                  const HomepageViewAdmin(),
                   PatientsPageView(),
-                  AppointmentsPageView(),
-                  ProductsPageView(),
-                  ServicesPageView()
+                  const AppointmentsPageView(),
+                  // const ProductsPageView(),
+                  // const ServicesPageView()
                 ],
               ),
             bottomNavigationBar: Container(
-              height: 55,
-              //color: Colors.white,
-              color: const Color(0xff73CEF4),
+              height: 65,
+              color: Colors.white,
+              // color: const Color(0xff73CEF4),
               padding: const EdgeInsets.symmetric(
                 horizontal: 16,
                 vertical: 5,
               ),
               child: Row(
                 //mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 //crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Column(
-                   // mainAxisSize: MainAxisSize.min,
-                   mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        alignment: Alignment.center,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: viewModel.isHome
-                              ? const Color(0xff1F2732)
-                              : Colors.white,
-                          border: Border.all(
-                            color: Colors.black.withOpacity(0.3),
-                          ),
 
-                        ),
-                        child: IconButton(
-                          onPressed: () {
-                            // viewModel.initialize();
-                            viewModel.changeIndex(0);
-                          },
-                          icon: Image.asset(
-                            'lib/resources/assets/icons/home.png',
-                            //fit: BoxFit.contain,
-                            color:
-                            viewModel.isHome ? Colors.white : Colors.black,
-                          ),
-
-
-                        ),
-                      ),
-                      Text(
-                        'Home',
-                        style: TextStyle(
-                          fontWeight: viewModel.isHome
-                              ? FontWeight.bold
-                              : FontWeight.normal,
-                          fontFamily: 'Avenir',
-                          fontSize: 10
-                        ),
-                      ),
-                    ],
-                  ),
                   Column(
                     //mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
                         alignment: Alignment.center,
-                        height: 30,
+                        height: 35,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: viewModel.isPatient
-                              ? const Color(0xff1F2732)
+                              ?  Colors.blue
                               : Colors.white,
                           border:
                           Border.all(color: Colors.black.withOpacity(0.3)),
@@ -201,16 +158,60 @@ class HomeView extends StatelessWidget {
                     ],
                   ),
                   Column(
+                    // mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        height: 35,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: viewModel.isHome
+                              ?  Colors.blue
+                              : Colors.white,
+                          border: Border.all(
+                            color: Colors.black.withOpacity(0.3),
+                          ),
+
+                        ),
+                        child: IconButton(
+                          onPressed: () {
+                            // viewModel.initialize();
+                            viewModel.changeIndex(0);
+                          },
+                          icon: Image.asset(
+                            'lib/resources/assets/icons/home.png',
+                            //fit: BoxFit.contain,
+                            color:
+                            viewModel.isHome ? Colors.white : Colors.black,
+                          ),
+
+
+                        ),
+                      ),
+                      Text(
+                        'Home',
+                        style: TextStyle(
+                            fontWeight: viewModel.isHome
+                                ? FontWeight.bold
+                                : FontWeight.normal,
+                            fontFamily: 'Avenir',
+                            fontSize: 10
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
                     //mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
                         alignment: Alignment.center,
-                        height: 30,
+                        height: 33,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: viewModel.isAppointment
-                              ? Colors.black
+                              ? Colors.blue
                               : Colors.white,
                           border:
                           Border.all(color: Colors.black.withOpacity(0.3)),
@@ -239,118 +240,118 @@ class HomeView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Column(
-                    //mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        alignment: Alignment.center,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color:
-                          viewModel.isProduct ? Colors.black : Colors.white,
-                          border:
-                          Border.all(color: Colors.black.withOpacity(0.3)),
-                        ),
-                        child: Stack(children: [
-                          IconButton(
-                            onPressed: () {
-                              //viewModel.initializeCart();
-                              viewModel.changeIndex(3);
-                            },
-                            icon: Image.asset(
-                              'lib/resources/assets/icons/products.png',
-                              //fit: BoxFit.contain,
-                              color:
-                              viewModel.isProduct ? Colors.white : Colors.black,
-                            ),
-                          ),
-                          // Positioned(
-                          //     right: 0,
-                          //     child: ViewModelBuilder<
-                          //             ApplicationViewModel>.reactive(
-                          //         disposeViewModel: false,
-                          //         onModelReady: (model) => model.getMyCart(),
-                          //         viewModelBuilder: () =>
-                          //             locator<ApplicationViewModel>(),
-                          //         builder: (context, model, child) {
-                          //           return model.cart.isNotEmpty
-                          //               ? Container(
-                          //                   height: 20,
-                          //                   width: 20,
-                          //                   decoration: BoxDecoration(
-                          //                     shape: BoxShape.circle,
-                          //                     color: const Color(0xffE24C4D),
-                          //                     border: Border.all(
-                          //                       width: 2,
-                          //                       color: Colors.white,
-                          //                     ),
-                          //                   ),
-                          //                   child: Center(
-                          //                       child: Text(
-                          //                     '${model.cart.length}',
-                          //                     textAlign: TextAlign.center,
-                          //                     style: const TextStyle(
-                          //                       fontSize: 14,
-                          //                       fontWeight: FontWeight.w600,
-                          //                       color: Colors.white,
-                          //                     ),
-                          //                   )))
-                          //               : Container();
-                          //         })),
-                        ]),
-                      ),
-                      Text(
-                        'Products',
-                        style: TextStyle(
-                          fontWeight: viewModel.isProduct
-                              ? FontWeight.bold
-                              : FontWeight.normal,
-                            fontSize: 10
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        height: 30,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: viewModel.isServices
-                              ? const Color(0xff1F2732)
-                              : Colors.white,
-                          border:
-                          Border.all(color: Colors.black.withOpacity(0.3)),
-                        ),
-                        child: IconButton(
-                          onPressed: () async {
-                            // await applicationViewModel.initializeWishlist();
-                            viewModel.changeIndex(4);
-
-                          },
-                          icon: Image.asset(
-                            'lib/resources/assets/icons/services.png',
-                            //fit: BoxFit.contain,
-                            color:
-                            viewModel.isServices ? Colors.white : Colors.black,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        'Services',
-                        style: TextStyle(
-                          fontWeight: viewModel.isServices
-                              ? FontWeight.bold
-                              : FontWeight.normal,
-                            fontSize: 10
-                        ),
-                      ),
-                    ],
-                  ),
+                  // Column(
+                  //   //mainAxisSize: MainAxisSize.min,
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     Container(
+                  //       alignment: Alignment.center,
+                  //       height: 30,
+                  //       decoration: BoxDecoration(
+                  //         shape: BoxShape.circle,
+                  //         color:
+                  //         viewModel.isProduct ? Colors.black : Colors.white,
+                  //         border:
+                  //         Border.all(color: Colors.black.withOpacity(0.3)),
+                  //       ),
+                  //       child: Stack(children: [
+                  //         IconButton(
+                  //           onPressed: () {
+                  //             //viewModel.initializeCart();
+                  //             viewModel.changeIndex(3);
+                  //           },
+                  //           icon: Image.asset(
+                  //             'lib/resources/assets/icons/products.png',
+                  //             //fit: BoxFit.contain,
+                  //             color:
+                  //             viewModel.isProduct ? Colors.white : Colors.black,
+                  //           ),
+                  //         ),
+                  //         // Positioned(
+                  //         //     right: 0,
+                  //         //     child: ViewModelBuilder<
+                  //         //             ApplicationViewModel>.reactive(
+                  //         //         disposeViewModel: false,
+                  //         //         onModelReady: (model) => model.getMyCart(),
+                  //         //         viewModelBuilder: () =>
+                  //         //             locator<ApplicationViewModel>(),
+                  //         //         builder: (context, model, child) {
+                  //         //           return model.cart.isNotEmpty
+                  //         //               ? Container(
+                  //         //                   height: 20,
+                  //         //                   width: 20,
+                  //         //                   decoration: BoxDecoration(
+                  //         //                     shape: BoxShape.circle,
+                  //         //                     color: const Color(0xffE24C4D),
+                  //         //                     border: Border.all(
+                  //         //                       width: 2,
+                  //         //                       color: Colors.white,
+                  //         //                     ),
+                  //         //                   ),
+                  //         //                   child: Center(
+                  //         //                       child: Text(
+                  //         //                     '${model.cart.length}',
+                  //         //                     textAlign: TextAlign.center,
+                  //         //                     style: const TextStyle(
+                  //         //                       fontSize: 14,
+                  //         //                       fontWeight: FontWeight.w600,
+                  //         //                       color: Colors.white,
+                  //         //                     ),
+                  //         //                   )))
+                  //         //               : Container();
+                  //         //         })),
+                  //       ]),
+                  //     ),
+                  //     Text(
+                  //       'Products',
+                  //       style: TextStyle(
+                  //         fontWeight: viewModel.isProduct
+                  //             ? FontWeight.bold
+                  //             : FontWeight.normal,
+                  //           fontSize: 10
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
+                  // Column(
+                  //   mainAxisSize: MainAxisSize.min,
+                  //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  //   children: [
+                  //     Container(
+                  //       height: 30,
+                  //       decoration: BoxDecoration(
+                  //         shape: BoxShape.circle,
+                  //         color: viewModel.isServices
+                  //             ? const Color(0xff1F2732)
+                  //             : Colors.white,
+                  //         border:
+                  //         Border.all(color: Colors.black.withOpacity(0.3)),
+                  //       ),
+                  //       child: IconButton(
+                  //         onPressed: () async {
+                  //           // await applicationViewModel.initializeWishlist();
+                  //           viewModel.changeIndex(4);
+                  //
+                  //         },
+                  //         icon: Image.asset(
+                  //           'lib/resources/assets/icons/services.png',
+                  //           //fit: BoxFit.contain,
+                  //           color:
+                  //           viewModel.isServices ? Colors.white : Colors.black,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //     Text(
+                  //       'Services',
+                  //       style: TextStyle(
+                  //         fontWeight: viewModel.isServices
+                  //             ? FontWeight.bold
+                  //             : FontWeight.normal,
+                  //           fontSize: 10
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                 ],
               ),
             ),
